@@ -39,7 +39,11 @@ class CheckstylePlugin implements Plugin<Project> {
 				project.checkstyle {
 					configFile = project.rootProject.file("$CHECKSTYLE_DIR/checkstyle.xml")
 					configProperties.configDir = configFile.parentFile
-					toolVersion = '6.16.1'
+					toolVersion = '8.9'
+				}
+
+				project.dependencies {
+					checkstyle("io.spring.javaformat:spring-javaformat-checkstyle:0.0.3")
 				}
 			}
 		}
