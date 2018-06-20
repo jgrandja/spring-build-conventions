@@ -14,10 +14,10 @@ public class HelloServletTest {
 	@Test
 	public void hello() throws Exception {
 		String url = System.getProperty("app.baseURI");
-		try(InputStream get = new URL(url).openConnection().getInputStream()) {
+		try (InputStream get = new URL(url).openConnection().getInputStream()) {
 			String hello = IOUtils.toString(get, Charset.defaultCharset());
 			assertEquals("Hello", hello);
 		}
-
 	}
+
 }

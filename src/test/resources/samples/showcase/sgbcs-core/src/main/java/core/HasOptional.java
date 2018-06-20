@@ -1,9 +1,7 @@
 package core;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 public class HasOptional {
 
@@ -11,4 +9,5 @@ public class HasOptional {
 		Logger logger = LoggerFactory.getLogger(HasOptional.class);
 		logger.debug("This is optional");
 	}
+
 }

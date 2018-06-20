@@ -31,7 +31,9 @@ import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
 public class TestKit implements TestRule {
+
 	final TemporaryFolder testProjectDir = new TemporaryFolder();
+
 	File buildDir;
 
 	@Override
@@ -42,7 +44,8 @@ public class TestKit implements TestRule {
 			public void evaluate() throws Throwable {
 				try {
 					buildDir = testProjectDir.newFolder();
-				} catch(IOException e) {
+				}
+				catch (IOException e) {
 					throw new RuntimeException(e);
 				}
 				base.evaluate();
@@ -57,19 +60,20 @@ public class TestKit implements TestRule {
 
 	public GradleRunner withProjectDir(File projectDir) throws IOException {
 		FileUtils.copyDirectory(projectDir, buildDir);
-		return GradleRunner.create()
-			.withProjectDir(buildDir)
-			.withPluginClasspath();
+		return GradleRunner.create().withProjectDir(buildDir).withPluginClasspath();
 	}
 
-	public GradleRunner withProjectResource(String projectResourceName) throws IOException, URISyntaxException {
+	public GradleRunner withProjectResource(String projectResourceName)
+			throws IOException, URISyntaxException {
 		ClassLoader classLoader = getClass().getClassLoader();
 		Enumeration<URL> resources = classLoader.getResources(projectResourceName);
-		if(!resources.hasMoreElements()) {
-			throw new IOException("Cannot find resource " + projectResourceName + " with " + classLoader);
+		if (!resources.hasMoreElements()) {
+			throw new IOException("Cannot find resource " + projectResourceName + " with "
+					+ classLoader);
 		}
 		URL resourceUrl = resources.nextElement();
 		File projectDir = Paths.get(resourceUrl.toURI()).toFile();
 		return withProjectDir(projectDir);
 	}
+
 }

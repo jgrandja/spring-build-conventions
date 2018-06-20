@@ -1,6 +1,5 @@
 package io.spring.gradle.convention;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -13,8 +12,10 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UtilsTest {
+
 	@Mock
 	Project project;
+
 	@Mock
 	Project rootProject;
 

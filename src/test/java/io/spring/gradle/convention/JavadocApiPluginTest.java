@@ -30,6 +30,7 @@ import org.junit.Test;
  * @author Rob Winch
  */
 public class JavadocApiPluginTest {
+
 	Project rootProject;
 
 	@After
@@ -48,9 +49,11 @@ public class JavadocApiPluginTest {
 
 		assertThat(apiTask).isNotNull();
 		assertThat(apiTask.getGroup()).isEqualTo("Documentation");
-		assertThat(apiTask.getDescription()).isEqualTo("Generates aggregated Javadoc API documentation.");
+		assertThat(apiTask.getDescription())
+				.isEqualTo("Generates aggregated Javadoc API documentation.");
 		assertThat(apiTask.getMaxMemory()).isEqualTo("1024m");
-		assertThat(apiTask.getDestinationDir()).isEqualTo(new File(rootProject.getBuildDir(), "api"));
+		assertThat(apiTask.getDestinationDir())
+				.isEqualTo(new File(rootProject.getBuildDir(), "api"));
 	}
 
 }

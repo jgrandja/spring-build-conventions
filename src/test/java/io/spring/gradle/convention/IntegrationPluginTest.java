@@ -32,6 +32,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Rob Winch
  */
 public class IntegrationPluginTest {
+
 	Project rootProject;
 
 	@After

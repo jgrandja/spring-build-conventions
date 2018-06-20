@@ -26,10 +26,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/")
 public class HelloServlet extends HttpServlet {
 
+	private static final long serialVersionUID = -166535360229360350L;
+
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		resp.getWriter().write("Hello");
 	}
 
-	private static final long serialVersionUID = -166535360229360350L;
 }
